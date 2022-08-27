@@ -1,8 +1,8 @@
-sha256: sha256_main.o
-	gcc -o sha256 sha256_main.o -lssl -lcrypto
+BL1: BL1.o
+	gcc -o BL1 BL1.o -lssl -lcrypto
 
-sha256_main.o: sha256_main.c
-	gcc -c -o sha256_main.o sha256_main.c
+BL1.o: BL1.c
+	gcc -c -o BL1.o BL1.c
 
 clean:
 	rm *.o

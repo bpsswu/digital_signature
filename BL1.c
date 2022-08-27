@@ -7,29 +7,10 @@
 #include <openssl/bn.h>
 #include <openssl/rsa.h>
 
-const uint8_t data[] =
-        { 0x54, 0x65, 0x6d, 0x70, 0x6f, 0x72, 0x61, 0x72, 0x79,
-          0x20, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x20, 0x74,
-          0x6f, 0x20, 0x62, 0x65, 0x20, 0x77, 0x72, 0x69, 0x74,
-          0x74, 0x65, 0x6e, 0x20, 0x74, 0x6f, 0x20, 0x66, 0x69,
-          0x6c, 0x65 };
-
-// const char* filename = "input.bin";
-const char* filename = "./add/add.c";
+const char* filename = "./BL2/BL2.c";
 
 int main()
 {
-    // 파일에 데이터 쓰기
-    // FILE* output_file = fopen(filename, "wb");
-    // if (!output_file) {
-    //     perror("fopen");
-    //     exit(EXIT_FAILURE);
-    // }
-
-    // fwrite(data, 1, sizeof data, output_file);
-    // printf("\n파일에 데이터 쓰기 완료\n\n");
-    // fclose(output_file);
-
     // 파일로부터 데이터 읽기
     FILE* in_file = fopen(filename, "rb");
     if (!in_file) {
