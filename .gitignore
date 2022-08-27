@@ -1,1 +1,15 @@
 *.o
+*.dll
+*.exe
+*.o
+*.so
+*.com
+*.elf
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
