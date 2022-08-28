@@ -7,7 +7,7 @@
 #include <openssl/bn.h>
 #include <openssl/rsa.h>
 
-const char* filename = "./BL2/BL2.c";
+const char* filename = "./BL2/BL2";
 
 int main()
 {
@@ -34,11 +34,11 @@ int main()
     */
     SHA256(file_contents, sb.st_size, digest);
 
-    printf("입력값 : ");
-    for (int i = 0; i < sb.st_size; i++)
-    {
-        printf("%x", file_contents[i]);
-    }
+    // printf("입력값 : ");
+    // for (int i = 0; i < sb.st_size; i++)
+    // {
+    //     printf("%x", file_contents[i]);
+    // }
     printf("입력 파일 크기 : %ld", sb.st_size);
     printf("\n");
 
