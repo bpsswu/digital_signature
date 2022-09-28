@@ -112,7 +112,6 @@ int main()
     EVP_PKEY_encrypt_init_ex, EVP_PKEY_encrypt, EVP_PKEY_decrypt_init_ex and EVP_PKEY_decrypt.
     */
 
-    // 암호화 과정
     printf("\n");
     printf("[DEBUG] sizeof(digest) = %lu\n", sizeof(hash_value));
     printf("[DEBUG] RSA_size(rsa_pri) = %d\n", RSA_size(rsa_pri));
@@ -127,7 +126,7 @@ int main()
     printf("\n패딩된 해시값 :\n");
     for (int j = 0; j < 256; j++)
     {
-        printf("%02X ", digest_padded[j]);
+        printf("%02X", digest_padded[j]);
     }
     printf("\n");
 
@@ -137,7 +136,7 @@ int main()
     printf("\n해시값 -> 암호문 : \n");
     for (int i = 0; i < 256; i++)
     {
-        printf("%02X ", cipher_text[i]);
+        printf("%02X", cipher_text[i]);
     }
     printf("\n");
 
@@ -147,7 +146,7 @@ int main()
     printf("\n암호문 -> 해시값 : \n");
     for (int i = 0; i < 256; i++)
     {
-        printf("%02X ", plain_text[i]);
+        printf("%02X", plain_text[i]);
     }
     printf("\n");
 

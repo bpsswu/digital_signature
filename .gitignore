@@ -1,4 +1,6 @@
 # Ignore all
+*.a
+*.sa
 *.o
 *.dll
 *.exe
@@ -6,3 +8,7 @@
 *.so
 *.com
 *.elf
+
+*
+!*.*
+!*/
