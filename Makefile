@@ -5,4 +5,4 @@ BL1.o: BL1.c
 	gcc -c -o BL1.o BL1.c
 
 clean:
-	rm *.o
+	rm BL1 *.o
