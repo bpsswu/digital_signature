@@ -66,7 +66,7 @@ int main()
 
     // RSA *PEM_read_RSAPrivateKey(FILE *fp, RSA **x, pem_password_cb *cb, void *u);
     // 마지막 두 인수는 파일에 비밀번호가 걸려있을 때만 해당
-    FILE *privfp = fopen("private_key.pem", "r");
+    FILE *privfp = fopen("private_key_1.pem", "r");
     RSA *rsa_pri = PEM_read_RSAPrivateKey(privfp, NULL, NULL, NULL);
 
     const BIGNUM *n = BN_new();
@@ -78,15 +78,15 @@ int main()
 
     RSA_get0_key(rsa_pri, &n, &e, &d);
 
-    // printf("\n");
-    // n_str = BN_bn2hex(n);
-    // printf("[DEBUG] n_str = %s\n", n_str);
-    // e_str = BN_bn2hex(e);
-    // printf("[DEBUG] e_str = %s\n", e_str);
-    // d_str = BN_bn2hex(d);
-    // printf("[DEBUG] d_str = %s\n", d_str);
+    printf("\n");
+    n_str = BN_bn2hex(n);
+    printf("[DEBUG] n_str = %s\n", n_str);
+    e_str = BN_bn2hex(e);
+    printf("[DEBUG] e_str = %s\n", e_str);
+    d_str = BN_bn2hex(d);
+    printf("[DEBUG] d_str = %s\n", d_str);
 
-    FILE *pubfp = fopen("public_key.pem", "r");
+    FILE *pubfp = fopen("public_key_1.pem", "r");
     RSA *rsa_pub = PEM_read_RSA_PUBKEY(pubfp, NULL, NULL, NULL);
     //RSA *rsa_pub = PEM_read_RSAPublicKey(pubfp, NULL, NULL, NULL);
 
@@ -126,7 +126,7 @@ int main()
     printf("\n패딩된 해시값 :\n");
     for (int j = 0; j < 256; j++)
     {
-        printf("%02X", digest_padded[j]);
+        printf("%02X ", digest_padded[j]);
     }
     printf("\n");
 
@@ -136,7 +136,7 @@ int main()
     printf("\n해시값 -> 암호문 : \n");
     for (int i = 0; i < 256; i++)
     {
-        printf("%02X", cipher_text[i]);
+        printf("%02X ", cipher_text[i]);
     }
     printf("\n");
 
@@ -146,7 +146,7 @@ int main()
     printf("\n암호문 -> 해시값 : \n");
     for (int i = 0; i < 256; i++)
     {
-        printf("%02X", plain_text[i]);
+        printf("%02X ", plain_text[i]);
     }
     printf("\n");
 
