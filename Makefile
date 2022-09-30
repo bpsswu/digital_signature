@@ -1,8 +1,16 @@
-BL1: BL1.o
-	gcc -o BL1 BL1.o -lssl -lcrypto
+CC = gcc
+CFLAGS = 
+LDFLAGS = -lcrypto
+# -lssl
+TARGET = BL1
+OBJS = BL1.o
 
-BL1.o: BL1.c
-	gcc -c -o BL1.o BL1.c
+.SUFFIXES : .c .o
+.c.o :
+	$(CC) -c $(CFLAGS) $<
 
+$(TARGET) : $(OBJS)
+	$(CC) -o $@ $(OBJS) $(LDFLAGS)
+	
 clean:
-	rm BL1 *.o
+	rm -f core $(TARGET) $(OBJS)
