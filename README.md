@@ -1,6 +1,6 @@
 # SHA-256 & RSA-2048 C practice
 
-## using OpenSSL 1.1.1q library
+Use OpenSSL 1.1.1q library
 
 ### program flow
 1. Hash the original message using SHA-256
