@@ -2,8 +2,8 @@ CC = gcc
 CFLAGS = 
 LDFLAGS = -lcrypto
 # -lssl
-TARGET = BL1
-OBJS = BL1.o
+TARGET = main
+OBJS = main.o
 
 .SUFFIXES : .c .o
 .c.o :

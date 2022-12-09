@@ -8,7 +8,7 @@
 #include <openssl/rsa.h>
 #include <openssl/pem.h>
 
-const char* filename = "./BL2/BL2";
+const char* filename = "./sources/dummy";
 
 int main()
 {
