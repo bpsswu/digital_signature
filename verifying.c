@@ -8,11 +8,11 @@
 #include <openssl/rsa.h>
 #include <openssl/pem.h>
 
-const char *fileName = "sources/dummy";
+const char *fileName = "";
 
 int main()
 {
-    printf("\n... Start Program ...\n\n");
+    printf("\n... Start Verifying Program ...\n\n");
     // Open a file
     FILE *pFile = fopen(fileName, "rb");
     if (!pFile)
@@ -83,6 +83,7 @@ int main()
     // check if private key is vaild
     if (RSA_check_key(rsaPrivate) != 1)
     {
+        // 아 RSA_check_key 함수는 개인키 전용 함수였음
         printf("RSA private key is unvalid\n");
         return 0;
     }
@@ -113,7 +114,7 @@ int main()
     fclose(pKey2);
     free(fileData);
 
-    printf("\n... End Program ...\n\n");
+    printf("\n... End Verifying Program ...\n\n");
 
     return 0;
 }

@@ -1,16 +1,13 @@
-CC = gcc
-CFLAGS = 
-LDFLAGS = -lcrypto
-# -lssl
-TARGET = main
-OBJS = main.o
+DIRS = Alice Bob
 
-.SUFFIXES : .c .o
-.c.o :
-	$(CC) -c $(CFLAGS) $<
+all:
+	@for d in $(DIRS); \
+	do \
+		$(MAKE) -C $$d; \
+	done
 
-$(TARGET) : $(OBJS)
-	$(CC) -o $@ $(OBJS) $(LDFLAGS)
-	
 clean:
-	rm -f core $(TARGET) $(OBJS)
+	@for d in $(DIRS); \
+	do \
+		$(MAKE) -C $$d clean; \
+	done
