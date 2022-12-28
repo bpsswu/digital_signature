@@ -1,4 +1,4 @@
-DIRS = Alice Bob
+DIRS = Alice Bob sources
 
 all:
 	@for d in $(DIRS); \

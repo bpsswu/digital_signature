@@ -53,7 +53,7 @@ int main()
     unsigned char signature[256];
 
     // Get Alice's private key from PEM file
-    FILE *pKey1 = fopen("../keys/private_key_1.pem", "rb");
+    FILE *pKey1 = fopen("../keys/Alice_private.pem", "rb");
     RSA *rsaPrivate = PEM_read_RSAPrivateKey(pKey1, NULL, NULL, NULL);
 
     // check if private key is vaild
@@ -72,6 +72,7 @@ int main()
     {
         printf("%02X ", signature[i]);
     }
+    printf("\n");
 
     FILE *pFile2;
     if ((pFile2 = fopen("signed_file", "wb")) == NULL)

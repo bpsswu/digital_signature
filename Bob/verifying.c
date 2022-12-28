@@ -2,7 +2,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/errno.h>
 #include <openssl/sha.h>
 #include <openssl/bn.h>
 #include <openssl/rsa.h>
@@ -14,8 +16,8 @@ int main()
 {
     printf("\n... Start Verifying Program ...\n\n");
     // Open a file
-    FILE *pFile = fopen(fileName, "rb");
-    if (!pFile)
+    FILE *pFile1 = fopen(fileName, "rb");
+    if (!pFile1)
     {
         perror("fopen");
         exit(EXIT_FAILURE);
@@ -37,8 +39,8 @@ int main()
     char *signature = (char *)malloc(sizeof(char) * 256);
     char *fileData  = (char *)malloc(sizeof(char) * dataSize);
 
-    fread(signature, 256, 1, pFile);
-    fread(fileData, dataSize, 1, pFile);
+    fread(signature, 256, 1, pFile1);
+    fread(fileData, dataSize, 1, pFile1);
 
     /* SHA-256 */
 
@@ -59,7 +61,7 @@ int main()
     unsigned char decrypted[32];
 
     // Get Alice's public key from PEM file
-    FILE *pKey = fopen("../keys/public_key_1.pem", "rb");
+    FILE *pKey = fopen("../keys/Alice_public.pem", "rb");
     RSA *rsaPublic = PEM_read_RSA_PUBKEY(pKey, NULL, NULL, NULL);
 
     // Decryption with Alice's public key
@@ -90,7 +92,24 @@ int main()
 
     printf("\n    [Verification Success]\n");
 
-    fclose(pFile);
+    FILE *pFile2;
+    if ((pFile2 = fopen("dummy", "wb")) == NULL)
+    {
+        perror("fopen");
+        exit(1);
+    }
+
+    fwrite(fileData, 1, dataSize, pFile2);
+
+    char path[50] = "./dummy";
+
+    if(chmod(path, 0744) == -1) {
+        fprintf(stderr, "chmod error: %s\n", strerror(errno));
+        return -1;
+    }
+
+    fclose(pFile1);
+    fclose(pFile2);
     fclose(pKey);
     free(signature);
     free(fileData);
