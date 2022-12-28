@@ -3,7 +3,6 @@
 !*.*
 !*/
 
-.vscode
 *.a
 *.sa
 *.o
@@ -13,3 +12,5 @@
 *.so
 *.com
 *.elf
+.vscode/
+!Makefile
