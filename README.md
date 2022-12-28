@@ -1,5 +1,9 @@
 # Digital Signature Program
 
+## Project description
+- Digital signature implementation
+- Applicable to encryption/decryption
+
 ## Getting Started
 ### Prerequisite
 * linux
