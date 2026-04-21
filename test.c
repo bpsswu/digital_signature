@@ -12,7 +12,7 @@ const char *fileName = "sources/dummy";
 
 int main()
 {
-    printf("\n... Start Program ...\n\n");
+    printf("\n... Start Program ...\n\n")
     // Open a file
     FILE *pFile = fopen(fileName, "rb");
     if (!pFile)
